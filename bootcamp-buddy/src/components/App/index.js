@@ -1,6 +1,7 @@
 import './App.css';
 import { Search } from '../Search/index'
 import { useState } from 'react';
+import {Dropdown} from '../Dropdown/index'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 
     }}
     handleClick={handleClick} />
+   <Dropdown handleChange={handleChange} options= {"Potato"}/>
     </div>
   );
 }

@@ -45,15 +45,16 @@ const resources = [
 function App() {
   const [input, setInput] = useState("");
   const [click, setClicked] = useState(false);
+  const [results, setResults] = useState(resources);
 
   function handleChange(e) {
-    setInput(e);
+    setInput(e.target.value);
     console.log(input);
   }
 
   function handleClick() {
-    setClicked(click);
-    console.log(click);
+    const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()))
+    setResults(newResources);
   }
 
   return (
@@ -68,12 +69,10 @@ function App() {
     </div>
 
     <div className='middle-column'>
-      <Search handleChange={(e) => {
-        handleChange(e.target.value);
-        }}
+      <Search handleChange={handleChange}
         handleClick={handleClick} />
       <Dropdown handleChange={handleChange} options= {"Potatoes"} />
-      <ResultsList results={resources} />
+      <ResultsList results={results} />
     </div>
     
     <div className='right-column'>

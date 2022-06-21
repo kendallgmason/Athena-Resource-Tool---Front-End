@@ -2,6 +2,7 @@ import './App.css';
 import { Search } from '../Search/index'
 import { useState } from 'react';
 import {Dropdown} from '../Dropdown/index'
+import {NavBar} from '../Navbar/index'
 
 
 function App() {
@@ -20,12 +21,13 @@ function App() {
 
   return (
     <div className="App">
+    <NavBar />
     <Search handleChange={(e) => {
       handleChange(e.target.value);
 
     }}
     handleClick={handleClick} />
-   <Dropdown handleChange={handleChange} options= {"Potato"}/>
+   <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
     </div>
   );
 }

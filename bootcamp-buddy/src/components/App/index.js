@@ -60,8 +60,12 @@ function App() {
   }
 
   function addFavourite(index) {
-    const newFavourites = [...favourites, resources[index]];
-    setFavourites(newFavourites);
+    if(!favourites.includes(resources[index])){
+      const newFavourites = [...favourites, resources[index]];
+      setFavourites(newFavourites);
+    } else {
+      alert('Resource is already included in favourites.')
+    }
   }
 
   return (

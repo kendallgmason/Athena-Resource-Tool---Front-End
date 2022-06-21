@@ -60,6 +60,10 @@ function App() {
     <div className="App">
 
     <div className='left-column'>
+      <div className='logo'>
+        <img src='' alt='img'></img>
+      </div>
+      <h2>My Favourites</h2>
     <Favourite favourite={{title: 'Learn git', URL: "https://learngitbranching.js.org/"}} />
     </div>
 
@@ -77,7 +81,7 @@ function App() {
     <NavBar/>
     <PostLink></PostLink>
     </div>
-    
+
     </div>
   );
 }

@@ -4,8 +4,12 @@ import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
 import { useState } from 'react';
+
+import PostLink from '../PostLink/index';
+
 import {Dropdown} from '../Dropdown/index'
 import {NavBar} from '../Navbar/index'
+
 
 const resources = [
   {
@@ -54,20 +58,26 @@ function App() {
 
   return (
     <div className="App">
-    <NavBar />
+
+    <div className='left-column'>
+    <Favourite favourite={{title: 'Learn git', URL: "https://learngitbranching.js.org/"}} />
+    </div>
+
+    <div className='middle-column'>
     <Search handleChange={(e) => {
       handleChange(e.target.value);
-
-    }}
-
-      <Favourite favourite={{title: 'Learn git', URL: "https://learngitbranching.js.org/"}} />
-      <ResultsList results={resources} />
-      <Search handleChange={(e) => {
-        handleChange(e.target.value);
       }}
+      handleClick={handleClick}>
+    </Search>
+    <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
+    <ResultsList results={resources} />
+    </div>
 
-    handleClick={handleClick} />
-   <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
+    <div className='right-column'>
+    <NavBar/>
+    <PostLink></PostLink>
+    </div>
+    
     </div>
   );
 }

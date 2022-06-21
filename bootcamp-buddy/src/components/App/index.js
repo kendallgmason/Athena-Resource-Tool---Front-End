@@ -43,6 +43,7 @@ const resources = [
 ];
 
 function App() {
+  const [list, setList] = useState(resources)
   const [input, setInput] = useState("");
   const [click, setClicked] = useState(false);
 
@@ -55,6 +56,8 @@ function App() {
     setClicked(click);
     console.log(click);
   }
+  
+  
 
   return (
     <div className="App">

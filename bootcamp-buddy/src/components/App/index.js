@@ -1,6 +1,7 @@
 import './App.css';
 import { Search } from '../Search/index'
 import { useState } from 'react';
+import PostLink from '../PostLink/index';
 
 
 function App() {
@@ -19,11 +20,14 @@ function App() {
 
   return (
     <div className="App">
+      <div>
     <Search handleChange={(e) => {
       handleChange(e.target.value);
 
     }}
     handleClick={handleClick} />
+    </div>
+    <PostLink></PostLink>
     </div>
   );
 }

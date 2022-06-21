@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+
+.post-link-content{
+  height: 50vh;
+  width: 25vh;
+  border: 1px solid black;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  float: right;
+}
+.post-link-content .item{
+  width: 90%;
+  margin: 5px;
+  padding: 0;
+  position: relative;
+}
+.post-link-content .wrapper{
+  height: 15px;
+  border: 1px solid red;
+}
+.post-link-content .description{
+  height: 60px;
+}
+input{
+  position: absolute;
+}
+#des{
+  height: 100px;
+}
+
+

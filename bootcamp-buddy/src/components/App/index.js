@@ -72,7 +72,7 @@ function App() {
     <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
     <ResultsList results={resources} />
     </div>
-
+    
     <div className='right-column'>
     <NavBar/>
     <PostLink></PostLink>

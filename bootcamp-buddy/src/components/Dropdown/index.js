@@ -1,4 +1,4 @@
-export function Dropdown ({handleChange, options}) {
+export function Dropdown ({handleChange}) {
   return (
       <div>
           <label htmlFor="Categories"> Type Of Article </label>

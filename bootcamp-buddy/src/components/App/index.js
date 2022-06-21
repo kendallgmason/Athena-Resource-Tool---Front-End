@@ -46,6 +46,7 @@ function App() {
   const [input, setInput] = useState("");
   const [click, setClicked] = useState(false);
   const [results, setResults] = useState(resources);
+  const [favourites, setFavourites] = useState([]);
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -55,6 +56,12 @@ function App() {
   function handleClick() {
     const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
+    setInput("");
+  }
+
+  function addFavourite(index) {
+    const newFavourites = [...favourites, resources[index]];
+    setFavourites(newFavourites);
   }
 
   return (
@@ -62,17 +69,17 @@ function App() {
 
     <div className='left-column'>
       <div className='logo'>
-        <img src='' alt='img'></img>
+        <img src='logo.svg' alt='img'></img>
       </div>
       <h2>My Favourites</h2>
-    <Favourite favourite={{title: 'Learn git', URL: "https://learngitbranching.js.org/"}} />
+    <Favourite favourites={favourites} />
     </div>
 
     <div className='middle-column'>
       <Search handleChange={handleChange}
-        handleClick={handleClick} />
+        handleClick={handleClick} input={input}/>
       <Dropdown handleChange={handleChange} options= {"Potatoes"} />
-      <ResultsList results={results} />
+      <ResultsList results={results} handleClick={addFavourite} />
     </div>
     
     <div className='right-column'>

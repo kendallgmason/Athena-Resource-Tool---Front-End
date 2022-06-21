@@ -1,10 +1,10 @@
-export function Result({ result }) {
+export function Result({ result, index, addFavourite }) {
     return (
             <div>
                 <div className="result">
                     <div>
                         <h4>
-                            <a href={"/"}><img src="star.svg" height="15px"/></a>
+                            <button onClick={() => {addFavourite(index)}}><img src="star.svg" alt="A star" height="15px"/></button>
                             <a href={result.URL}>{result.title}</a>
                         </h4>
                         <h4>{result.type}</h4>

@@ -1,4 +1,6 @@
 import './App.css';
+
+import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
 import { useState } from 'react';
@@ -50,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+      <Favourite favourite={{title: 'Learn git', URL: "https://learngitbranching.js.org/"}} />
       <ResultsList results={resources} />
       <Search handleChange={(e) => {
         handleChange(e.target.value);

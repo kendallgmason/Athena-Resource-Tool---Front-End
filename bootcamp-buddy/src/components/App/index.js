@@ -64,13 +64,12 @@ function App() {
     </div>
 
     <div className='middle-column'>
-    <Search handleChange={(e) => {
-      handleChange(e.target.value);
-      }}
-      handleClick={handleClick}>
-    </Search>
-    <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
-    <ResultsList results={resources} />
+      <Search handleChange={(e) => {
+        handleChange(e.target.value);
+        }}
+        handleClick={handleClick} />
+      <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+      <ResultsList results={resources} />
     </div>
 
     <div className='right-column'>

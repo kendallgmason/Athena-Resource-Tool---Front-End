@@ -4,11 +4,10 @@ import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
 import { useState } from 'react';
-
 import PostLink from '../PostLink/index';
-
-import {Dropdown} from '../Dropdown/index'
-import {NavBar} from '../Navbar/index'
+import {Dropdown} from '../Dropdown/index';
+import {NavBar} from '../Navbar/index';
+import {Typedropdown} from './Typedropdown/index.js'
 
 
 const resources = [
@@ -54,7 +53,8 @@ function App() {
   }
 
   function handleClick() {
-    const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()))
+    const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
+    resource.type.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
     setInput("");
   }
@@ -82,7 +82,10 @@ function App() {
     <div className='middle-column'>
       <Search handleChange={handleChange}
         handleClick={handleClick} input={input}/>
+
       <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+      <Typedropdown handleChange={handleChange} options= {"Tomatos"} />
+
       <ResultsList results={results} handleClick={addFavourite} />
     </div>
     

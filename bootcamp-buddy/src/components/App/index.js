@@ -54,7 +54,6 @@ function App() {
 
   return (
     <div className="App">
-
     <NavBar />
     <Search handleChange={(e) => {
       handleChange(e.target.value);

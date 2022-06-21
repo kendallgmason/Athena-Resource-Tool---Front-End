@@ -1,5 +1,7 @@
 import './App.css';
 import { ResultsList } from '../ResultsList';
+import { Search } from '../Search/index'
+import { useState } from 'react';
 
 const resources = [
   {
@@ -30,12 +32,29 @@ const resources = [
       topic: 'React',
       description: "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
   }
-]
+];
 
 function App() {
+  const [input, setInput] = useState("");
+  const [click, setClicked] = useState(false);
+
+  function handleChange(e) {
+    setInput(e);
+    console.log(input);
+  }
+
+  function handleClick() {
+    setClicked(click);
+    console.log(click);
+  }
+
   return (
     <div className="App">
       <ResultsList results={resources} />
+      <Search handleChange={(e) => {
+        handleChange(e.target.value);
+      }}
+    handleClick={handleClick} />
     </div>
   );
 }

@@ -43,11 +43,13 @@ const resources = [
 ];
 
 function App() {
-  const [list, setList] = useState(resources)
+ 
   const [input, setInput] = useState("");
-  const [click, setClicked] = useState(false);
+  // const [click, setClicked] = useState(false);
   const [results, setResults] = useState(resources);
   const [favourites, setFavourites] = useState([]);
+  const [list, setList] = useState([]);
+  
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -61,11 +63,19 @@ function App() {
   }
 
   function addFavourite(index) {
-    const newFavourites = [...favourites, resources[index]];
-    setFavourites(newFavourites);
+    if(!favourites.includes(resources[index])){
+      const newFavourites = [...favourites, resources[index]];
+      setFavourites(newFavourites);
+    } else {
+      alert('Resource is already included in favourites.')
+    }
   }
-  
-  
+
+  function addResource(index) {
+    const newResources = [...list, resources[index]];
+    setList(newResources);
+  }
+
 
   return (
     <div className="App">
@@ -87,7 +97,7 @@ function App() {
     
     <div className='right-column'>
     <NavBar/>
-    <PostLink></PostLink>
+    <PostLink list={list} handleClick={addResource} ></PostLink>
     </div>
 
     </div>

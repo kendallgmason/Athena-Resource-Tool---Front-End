@@ -1,10 +1,10 @@
-export function Result({ result, index, addFavourite }) {
+export function Result({ result, index, handleClick }) {
     return (
             <div>
                 <div className="result">
                     <div>
                         <h4>
-                            <button onClick={() => {addFavourite(index)}}><img src="star.svg" alt="A star" height="15px"/></button>
+                            <button onClick={() => {handleClick(index)}}><img src="star.svg" alt="A star" height="15px"/></button>
                             <a href={result.URL}>{result.title}</a>
                         </h4>
                         <h4>{result.type}</h4>

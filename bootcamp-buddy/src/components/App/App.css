@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.favourite {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.favourite > img {
+  height: 20px;
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: space-around;
+}
+
+.result > div {
+  width: 20%;
+}
+
+.result > p {
+  width: 50%;
+  text-align: left;
+}
+
+hr {
+  width: 90%;
+}

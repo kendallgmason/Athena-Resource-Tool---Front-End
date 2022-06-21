@@ -4,8 +4,12 @@ import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
 import { useState } from 'react';
+
+import PostLink from '../PostLink/index';
+
 import {Dropdown} from '../Dropdown/index'
 import {NavBar} from '../Navbar/index'
+
 
 const resources = [
   {
@@ -55,7 +59,11 @@ function App() {
   return (
     <div className="App">
 
+      <div>
+
+
     <NavBar />
+
     <Search handleChange={(e) => {
       handleChange(e.target.value);
 
@@ -69,6 +77,8 @@ function App() {
 
     handleClick={handleClick} />
    <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
+    </div>
+    <PostLink></PostLink>
     </div>
   );
 }

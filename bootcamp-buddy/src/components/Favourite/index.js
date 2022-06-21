@@ -1,3 +1,4 @@
+
 import "../App/App.css";
 export function Favourite({ favourite }) {
     return (
@@ -12,5 +13,7 @@ export function Favourite({ favourite }) {
         <button id="save-button" type="button">Save</button>
 
         </div>
+
+
     );
 }

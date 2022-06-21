@@ -63,24 +63,27 @@ function App() {
     <div className="App">
 
     <div className='left-column'>
+      <div className='logo'>
+        <img src='' alt='img'></img>
+      </div>
+      <h2>My Favourites</h2>
     <Favourite favourite={{title: 'Learn git', URL: "https://learngitbranching.js.org/"}} />
     </div>
 
     <div className='middle-column'>
-    <Search handleChange={(e) => {
-      handleChange(e.target.value);
-      }}
-      handleClick={handleClick}>
-    </Search>
-    <Dropdown handleChange={handleChange} options= {"Potatoes"}/>
-    <ResultsList results={resources} />
+      <Search handleChange={(e) => {
+        handleChange(e.target.value);
+        }}
+        handleClick={handleClick} />
+      <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+      <ResultsList results={resources} />
     </div>
-
+    
     <div className='right-column'>
     <NavBar/>
     <PostLink></PostLink>
     </div>
-    
+
     </div>
   );
 }

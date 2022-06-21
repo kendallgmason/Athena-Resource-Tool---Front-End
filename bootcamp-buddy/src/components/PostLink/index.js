@@ -1,7 +1,7 @@
 import '../App/App.css';
 
-function PostLink(){
-
+function PostLink({ list }){
+  
   return(
     <div className="post-link-content">
      <div className="title-item">
@@ -17,6 +17,17 @@ function PostLink(){
      <input  id="des" type="text" value="description" placeholder='Description'></input>
      </div>
      <button type='submit'>Submit</button>
+     <ul>
+  {list.map(list => 
+      (<li Style={"list-style: none"}>
+          <div className="result">
+              <a href={list.URL}>
+                  <h3>{list.title}</h3>
+              </a>
+          </div>
+      </li>)
+  )}
+</ul>
     </div>
   )
 

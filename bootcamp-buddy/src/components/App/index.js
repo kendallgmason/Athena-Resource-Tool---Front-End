@@ -64,12 +64,8 @@ function App() {
 
   function addFavourite(index) {
 
-    if(!favourites.includes(resources[index])){
-      const newFavourites = [...favourites, resources[index]];
-
     if(!favourites.includes(results[index])){
       const newFavourites = [...favourites, results[index]];
-
       setFavourites(newFavourites);
     } else {
       alert('Resource is already included in favourites.')

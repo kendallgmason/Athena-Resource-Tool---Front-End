@@ -82,17 +82,17 @@ function App() {
     <div className="App">
 
     <div className='left-column'>
-      <div className='logo'>
-        <img src='logo.svg' alt='img'></img>
-      </div>
-      <h2>My Favourites</h2>
-    <Favourite favourites={favourites} />
+      <img src='logo.svg' alt='img' className="logo"></img>
+      <Favourite favourites={favourites} />
     </div>
 
     <div className='middle-column'>
-      <Search handleChange={handleChange}
-        handleClick={handleClick} input={input}/>
-      <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+      <h1>Athena</h1>
+      <div className="search">
+        <Search handleChange={handleChange}
+          handleClick={handleClick} input={input}/>
+        <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+      </div>
       <ResultsList results={results} handleClick={addFavourite} />
     </div>
     

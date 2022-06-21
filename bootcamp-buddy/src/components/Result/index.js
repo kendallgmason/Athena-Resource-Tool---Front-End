@@ -4,7 +4,7 @@ export function Result({ result }) {
                 <div className="result">
                     <div>
                         <h4>
-                            <a href={result.URL}><img src="star.svg" height="15px"/></a>
+                            <a href={"/"}><img src="star.svg" height="15px"/></a>
                             <a href={result.URL}>{result.title}</a>
                         </h4>
                         <h4>{result.type}</h4>

@@ -207,8 +207,13 @@ hr {
 .navlist{
   display: flex;
   flex-direction: column;
+  list-style-type: none;
 }
 
 nav{
   margin-bottom: 20vh;
+}
+
+.faved {
+  background-color: var(--primary-font-color);
 }

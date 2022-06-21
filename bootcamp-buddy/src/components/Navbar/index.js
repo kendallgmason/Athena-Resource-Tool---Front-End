@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 import { NavLink } from '../Navlink/index'
 
 export function NavBar() {

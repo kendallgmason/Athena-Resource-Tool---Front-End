@@ -17,7 +17,7 @@ export function PostLink({ handleClick }){
 
   return(
     <div className="post-link-content">
-      <h2>Put your new links here</h2>
+      <h2>Add Helpful Links</h2>
       <div className="fields">
         <div className="wrapper-item1">
           <input type="text" name="URL" value={resource.URL} placeholder='URL' onChange={handleInputChange}/>

@@ -1,6 +1,6 @@
 export function Dropdown ({ handleChange }) {
   return (
-      <div className="dropdown">
+      <div className="dropdown" data-testid="dropdown-test">
           <label htmlFor="Categories"></label>
           <select onChange={handleChange} name="categories" id="Categories">
             <option className="dropdown-option" >All</option>

@@ -181,7 +181,7 @@ function App() {
 
       <div className='middle-column'>
         <h1>Athena</h1>
-        <div className="search">
+        <div className="search" >
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>
           <Dropdown handleChange={topicFilter} />

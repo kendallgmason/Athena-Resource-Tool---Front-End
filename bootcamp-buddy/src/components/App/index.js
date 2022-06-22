@@ -65,8 +65,7 @@ function App() {
   // This updates the list of results on the page
 
   function handleClick() {
-    const newResources = results.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
-    resource.type.toLowerCase().includes(input.toLowerCase()))
+    const newResources = results.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
     // Lastly, the function clears what the user has typed into the search box
     setInput("");

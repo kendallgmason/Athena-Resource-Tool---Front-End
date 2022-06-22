@@ -98,7 +98,7 @@
 .favourites-content > ul > li, .fields > div > input {
   width: 90%;
   background-color: var(--primary-bg-color);
-  margin: 3% 0;
+  margin-top: 5%;
   color: var(--primary-font-color);
   font-size: 10px;
 }

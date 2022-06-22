@@ -53,7 +53,7 @@ export function PostLink({ handleClick, onSelect}){
         <div className="wrapper-item2">
           <input type="text" name="title" value={resource.title} placeholder='Title' onChange={handleInputChange}/>
         </div>
-        <div className="wrapper-item3">
+        <div data-testid="object" className="wrapper-item3">
           <input type="text" name="description" value={resource.description} placeholder='Description' onChange={handleInputChange}/>
         </div>
       </div>

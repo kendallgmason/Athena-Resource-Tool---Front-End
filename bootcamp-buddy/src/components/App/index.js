@@ -65,7 +65,7 @@ function App() {
   // This updates the list of results on the page
 
   function handleClick() {
-    const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
+    const newResources = results.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
     resource.type.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
     // Lastly, the function clears what the user has typed into the search box
@@ -97,6 +97,28 @@ function App() {
     setResults(newResources);
   }
 
+  // These functions are used in the Dropdown components
+  // When a topic/type is selected, it filters the results accordingly, and updates the results state
+  // This updates the list of results on the page
+  function topicFilter(e) {
+    if (e.target.value === 'All') {
+      const newResults = resources;
+      setResults(newResults);
+    } else {
+      const newResults = resources.filter(resource => resource.topic.toLowerCase().includes(e.target.value.toLowerCase()))
+      setResults(newResults);
+    }
+  }
+  function typeFilter(e) {
+    if (e.target.value === 'All') {
+      const newResults = resources;
+      setResults(newResults);
+    } else {
+      const newResults = resources.filter(resource => resource.type.toLowerCase().includes(e.target.value.toLowerCase()))
+      setResults(newResults);
+    }
+  }
+
   return (
     <div className="App">
 
@@ -110,8 +132,8 @@ function App() {
         <div className="search">
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>
-          <Dropdown handleChange={handleChange} options={"Potatoes"} />
-          <Typedropdown handleChange={handleChange} options={"Tomatos"} />
+          <Dropdown handleChange={topicFilter} />
+          <Typedropdown handleChange={typeFilter} />
         </div>
         <ResultsList results={results} handleClick={addFavourite} />
       </div>

@@ -39,7 +39,7 @@ export function PostLink({ handleClick, onSelect}){
 
   return(
     <div className="post-link-content">
-      <h2>Put your new links here</h2>
+      <h2>Add Helpful Links</h2>
       <div className="fields">
         <div className="wrapper-item1">
           <Dropdown handleChange={handleTopicChange}></Dropdown>

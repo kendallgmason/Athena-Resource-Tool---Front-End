@@ -195,10 +195,15 @@ input:focus {
 }
 
 .dropdown {
+  margin-top: 0px;
+  margin-bottom: 5px;
   width: 15%;
+
 }
 
 .typeDropdown {
+  margin-top: 0px;
+  margin-bottom: 5px;
   width: 25%;
 }
 
@@ -290,6 +295,7 @@ h4 > button:hover, .favourite > button:hover, #save-button, .post-link-content >
 
 .submit-button:hover {
   color: var(--primary-font-color);
+  color: white;
 
 }
 

@@ -1,4 +1,4 @@
-import { PostLink } from ".";
+import { Search } from ".";
 import { render } from "@testing-library/react";
 
 const testProps = {
@@ -7,7 +7,7 @@ const testProps = {
  };
 
 test("postLink renders successfully", () => {
-    const { getByTestId } = render(<PostLink {...testProps} />);
-    const actual = getByTestId("object");
+    const { getByTestId } = render(<Search {...testProps} />);
+    const actual = getByTestId("search-test");
     expect(actual).toBeInTheDocument();
  });

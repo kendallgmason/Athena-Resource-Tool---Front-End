@@ -7,7 +7,7 @@ export function Search({handleClick, handleChange, input}) {
     }
     
     return(
-        <div className="search-box">
+        <div className="search-box" data-testid="search-test">
             <input 
             className="search-input"
             placeholder="What would you like to learn about?"

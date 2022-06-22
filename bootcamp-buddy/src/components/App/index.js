@@ -51,7 +51,7 @@ function App() {
     setInput(e.target.value);
     console.log(input);
   }
-
+ 
   function handleClick() {
     const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
     resource.type.toLowerCase().includes(input.toLowerCase()))

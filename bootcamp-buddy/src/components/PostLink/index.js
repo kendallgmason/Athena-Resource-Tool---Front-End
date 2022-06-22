@@ -1,7 +1,12 @@
 import { useState } from 'react';
+import { Typedropdown } from '../App/Typedropdown/index.js';
+import { Dropdown } from '../Dropdown/index.js';
 
-export function PostLink({ handleClick }){
+export function PostLink({ handleClick, onSelect}){
+
   const[resource, setResource] = useState({
+    topic: "",
+    type:"",
     URL: "",
     title: "",
     description: ""
@@ -13,12 +18,35 @@ export function PostLink({ handleClick }){
       ...resource,
       [name]: value
     })
+    console.log(resource)
+  }
+
+  function handleTopicChange(e) {
+    const value = e.target.value;
+    setResource({
+      ...resource,
+      topic: value
+    })
+  }
+
+  function handleTypeChange(e) {
+    const value = e.target.value;
+    setResource({
+      ...resource,
+      type: value
+    })
   }
 
   return(
     <div className="post-link-content">
       <h2>Put your new links here</h2>
       <div className="fields">
+        <div className="wrapper-item1">
+          <Dropdown handleChange={handleTopicChange}></Dropdown>
+        </div>
+        <div className="wrapper-item1">
+          <Typedropdown handleChange={handleTypeChange}></Typedropdown>
+        </div>
         <div className="wrapper-item1">
           <input type="text" name="URL" value={resource.URL} placeholder='URL' onChange={handleInputChange}/>
         </div>

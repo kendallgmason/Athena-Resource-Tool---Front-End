@@ -3,14 +3,9 @@ import { useState } from 'react';
 
 import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
+import { Typedropdown } from './Typedropdown/index.js'
 import { Search } from '../Search/index'
-
-import { useState } from 'react';
-
-
-import {Typedropdown} from './Typedropdown/index.js'
-
-import { PostLink} from '../PostLink/index';
+import { PostLink } from '../PostLink/index';
 import { Dropdown } from '../Dropdown/index'
 import { NavBar } from '../Navbar/index'
 
@@ -65,7 +60,6 @@ function App() {
     console.log(input);
   }
 
-
   // This function is used in the Search component
   // When the search button is clicked, it filters the resources array to match the user's input, and updates the results state
   // This updates the list of results on the page
@@ -116,8 +110,8 @@ function App() {
         <div className="search">
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>
-          <Dropdown handleChange={handleChange} options= {"Potatoes"} />
-             <Typedropdown handleChange={handleChange} options= {"Tomatos"} />
+          <Dropdown handleChange={handleChange} options={"Potatoes"} />
+          <Typedropdown handleChange={handleChange} options={"Tomatos"} />
         </div>
         <ResultsList results={results} handleClick={addFavourite} />
       </div>

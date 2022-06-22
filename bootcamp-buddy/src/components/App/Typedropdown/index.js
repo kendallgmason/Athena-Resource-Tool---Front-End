@@ -1,7 +1,7 @@
 export function Typedropdown ({handleChange}) {
     return (
-        <div>
-          <label htmlFor="Categories"> Type Of Type </label>
+        <div className="typeDropdown">
+          <label htmlFor="Categories"> Type </label>
           <select onChange={handleChange} name="categories" id="another-categories">
           <option className="dropdown-option" ></option>
           <option className="dropdown-option" >Documentation</option>

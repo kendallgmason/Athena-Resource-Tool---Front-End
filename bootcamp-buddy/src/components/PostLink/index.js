@@ -38,7 +38,7 @@ export function PostLink({ handleClick, onSelect}){
   }
 
   return(
-    <div className="post-link-content">
+    <div className="post-link-content" data-testid="object">
       <h2>Add Helpful Links</h2>
       <div className="fields">
         <div className="wrapper-item1">
@@ -53,7 +53,7 @@ export function PostLink({ handleClick, onSelect}){
         <div className="wrapper-item2">
           <input type="text" name="title" value={resource.title} placeholder='Title' onChange={handleInputChange}/>
         </div>
-        <div data-testid="object" className="wrapper-item3">
+        <div className="wrapper-item3">
           <input type="text" name="description" value={resource.description} placeholder='Description' onChange={handleInputChange}/>
         </div>
       </div>

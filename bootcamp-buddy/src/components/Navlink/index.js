@@ -7,4 +7,3 @@ export function NavLink({LinkName}) {
     </li>
   )
 }
-

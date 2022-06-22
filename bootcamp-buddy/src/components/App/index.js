@@ -1,16 +1,23 @@
 import './App.css';
+import { useState } from 'react';
 
 import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
+
 import { useState } from 'react';
-import PostLink from '../PostLink/index';
-import {Dropdown} from '../Dropdown/index';
-import {NavBar} from '../Navbar/index';
+
+
 import {Typedropdown} from './Typedropdown/index.js'
 
+import { PostLink} from '../PostLink/index';
+import { Dropdown } from '../Dropdown/index'
+import { NavBar } from '../Navbar/index'
 
-const resources = [
+
+// This array will eventually be replaced by an array obtained by sending a query to the database
+// We have used this here in the meantime as a placeholder for testing our components
+const initialResources = [
   {
       URL: 'https://learngitbranching.js.org/',
       title: 'Learn Git Branching',
@@ -42,23 +49,37 @@ const resources = [
 ];
 
 function App() {
+  // This state represents the full list of resources available - it is initially set to the placeholder array above
+  const [resources, setResources] = useState(initialResources);
+  // This state represents the text the user has typed into the search bar
   const [input, setInput] = useState("");
-  const [click, setClicked] = useState(false);
-  const [results, setResults] = useState(resources);
+  // This state represents the current list of results on the page - it is initially set to the resources array above
+  const [results, setResults] = useState(initialResources);
+  // This state represents the current list of the user's favourites - it is initially a blank list
   const [favourites, setFavourites] = useState([]);
 
+  // This function is used in the Search component
+  // It updates the input state when the user types into the search bar
   function handleChange(e) {
     setInput(e.target.value);
     console.log(input);
   }
- 
+
+
+  // This function is used in the Search component
+  // When the search button is clicked, it filters the resources array to match the user's input, and updates the results state
+  // This updates the list of results on the page
+
   function handleClick() {
     const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
     resource.type.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
+    // Lastly, the function clears what the user has typed into the search box
     setInput("");
   }
 
+  // This function is used in the ResultsList component
+  // When the user clicks the star button next to a result, it adds the result to their favourites list 
   function addFavourite(index) {
     if(!favourites.includes(results[index])){
       const newFavourites = [...favourites, results[index]];
@@ -68,32 +89,44 @@ function App() {
     }
   }
 
+  // This function is used in the Favourites component
+  // When the user clicks the star button next to a result, it removes the result from their favourites list 
+  function deleteFavourite(index) {
+    const newFavourites = [...favourites.slice(0, index), ...favourites.slice(index + 1)];
+    setFavourites(newFavourites);
+  }
+
+  // This function is used in the PostLink component
+  function addResource(resource) {
+    const newResources = [...resources, resource];
+    setResources(newResources);
+    setResults(newResources);
+  }
+
   return (
     <div className="App">
 
-    <div className='left-column'>
-      <div className='logo'>
-        <img src='logo.svg' alt='img'></img>
+      <div className='left-column'>
+        <img src='logo.svg' alt='img' className="logo" />
+        <Favourite favourites={favourites} handleClick={deleteFavourite}/>
       </div>
-      <h2>My Favourites</h2>
-    <Favourite favourites={favourites} />
-    </div>
 
-    <div className='middle-column'>
-      <Search handleChange={handleChange}
-        handleClick={handleClick} input={input}/>
+      <div className='middle-column'>
+        <h1>Athena</h1>
+        <div className="search">
+          <Search handleChange={handleChange}
+            handleClick={handleClick} input={input}/>
+          <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+             <Typedropdown handleChange={handleChange} options= {"Tomatos"} />
+        </div>
+        <ResultsList results={results} handleClick={addFavourite} />
+      </div>
 
-      <Dropdown handleChange={handleChange} options= {"Potatoes"} />
-      <Typedropdown handleChange={handleChange} options= {"Tomatos"} />
 
-      <ResultsList results={results} handleClick={addFavourite} />
-    </div>
-    
-    <div className='right-column'>
-    <NavBar/>
-    <PostLink></PostLink>
-    </div>
-
+      <div className='right-column'>
+        <NavBar/>
+        <PostLink handleClick={addResource} />
+      </div>
     </div>
   );
 }

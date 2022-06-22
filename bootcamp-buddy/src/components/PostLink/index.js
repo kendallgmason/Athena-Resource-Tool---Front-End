@@ -1,26 +1,35 @@
-import '../App/App.css';
+import { useState } from 'react';
 
-function PostLink(){
+export function PostLink({ handleClick }){
+  const[resource, setResource] = useState({
+    URL: "",
+    title: "",
+    description: ""
+  });
+
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setResource({
+      ...resource,
+      [name]: value
+    })
+  }
 
   return(
     <div className="post-link-content">
-     <div className="title-item">
-       <h3>Put your new links here</h3>
-     </div>
-     <div className="wrapper-item1">
-      <input  type="text" value="post link" placeholder='URL'></input>
-     </div>
-     <div className="wrapper-item2">
-     <input  type="text" value="title" placeholder='Title'></input>
-     </div>
-     <div className="wrapper-item3">
-     <input  id="des" type="text" value="description" placeholder='Description'></input>
-     </div>
-     <button type='submit'>Submit</button>
+      <h2>Put your new links here</h2>
+      <div className="fields">
+        <div className="wrapper-item1">
+          <input type="text" name="URL" value={resource.URL} placeholder='URL' onChange={handleInputChange}/>
+        </div>
+        <div className="wrapper-item2">
+          <input type="text" name="title" value={resource.title} placeholder='Title' onChange={handleInputChange}/>
+        </div>
+        <div className="wrapper-item3">
+          <input type="text" name="description" value={resource.description} placeholder='Description' onChange={handleInputChange}/>
+        </div>
+      </div>
+      <button type="submit" onClick={() => {handleClick(resource)}}>Submit</button>
     </div>
   )
-
-
 };
-
-export default PostLink;

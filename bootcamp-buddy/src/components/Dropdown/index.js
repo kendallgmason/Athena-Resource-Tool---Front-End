@@ -1,13 +1,13 @@
 export function Dropdown ({handleChange}) {
   return (
  
-      <div>
-          <label htmlFor="Categories"> Type Of Topic </label>
+      <div className="dropdown">
+          <label htmlFor="Categories"> Topic </label>
           <select onChange={handleChange} name="categories" id="Categories">
-          <option className="dropdown-option" ></option>
+          <option className="dropdown-option" >All</option>
           <option className="dropdown-option" >React</option>
-          <option className="dropdown-option" >jest</option>
-          <option className="dropdown-option" >git</option>
+          <option className="dropdown-option" >Jest</option>
+          <option className="dropdown-option" >Git</option>
           </select>
 
       </div>

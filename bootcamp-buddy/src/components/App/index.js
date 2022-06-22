@@ -68,30 +68,22 @@ function App() {
   //   }
   //   fetchData();
   // },[]);
+  
+  const fetchData = async () => {
+    const data = await fetch('/resources');
+    const json = await data.json();
+    setResources(json.payload);
+    setResults(json.payload);
+  }
 
   useEffect(() => {
-    // declare the data fetching function
-    const fetchData = async () => {
-      const data = await fetch('/resources');
-      console.log(data);
-      const json = await data.json();
-      setResources(json.payload);
-      setResults(json.payload);
-    }
-    // call the function
-    fetchData()
-      // make sure to catch any error
-      .catch(console.error);
+    fetchData();
   }, [])
-
-  
-  
 
   // This function is used in the Search component
   // It updates the input state when the user types into the search bar
   function handleChange(e) {
     setInput(e.target.value);
-    console.log(input);
   }
 
   // This function is used in the Search component
@@ -99,6 +91,10 @@ function App() {
   // This updates the list of results on the page
 
   function handleClick() {
+    if (input === "") {
+      setResults(resources);
+      return;
+    }
     const newResources = results.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
     // Lastly, the function clears what the user has typed into the search box
@@ -123,11 +119,33 @@ function App() {
     setFavourites(newFavourites);
   }
 
-  // This function is used in the PostLink component
+  // This has been replaced by the addResourceToDB function below
   function addResource(resource) {
     const newResources = [...resources, resource];
     setResources(newResources);
     setResults(newResources);
+  }
+  
+  // This function is used in the PostLink component
+  // When the user clicks 'Submit', it sends a POST request to the API to add the new resource to the table
+  // Lastly the function runs the fetchData function
+  async function addResourceToDB(resource) {
+    for (const key in resource) {
+      if (resource[key] === '') {
+        alert(`${key} cannot be null!`)
+        return;
+      }
+    }
+    const response = await fetch('/resources', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(resource)
+    })
+    // Sending a fresh GET request to the database for the resources table, and displaying it on the page
+    fetchData();
+    alert('New resource added!')
   }
 
   // These functions are used in the Dropdown components
@@ -139,6 +157,7 @@ function App() {
       setResults(newResults);
     } else {
       const newResults = resources.filter(resource => resource.topic.toLowerCase().includes(e.target.value.toLowerCase()))
+      console.log(newResults);
       setResults(newResults);
     }
   }
@@ -174,7 +193,7 @@ function App() {
 
       <div className='right-column'>
         <NavBar/>
-        <PostLink handleClick={addResource} />
+        <PostLink handleClick={addResourceToDB} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Typedropdown } from './Typedropdown/index.js'
@@ -11,46 +11,81 @@ import { NavBar } from '../Navbar/index'
 
 // This array will eventually be replaced by an array obtained by sending a query to the database
 // We have used this here in the meantime as a placeholder for testing our components
-const initialResources = [
-  {
-      URL: 'https://learngitbranching.js.org/',
-      title: 'Learn Git Branching',
-      type: 'Game/App',
-      topic: 'Git',
-      description: "LearnGitBranching is a git repository visualizer, sandbox, and a series of educational tutorials and challenges. Its primary purpose is to help developers understand git through the power of visualization (something that's absent when working on the command line). This is achieved through a game with different levels to get acquainted with the different git commands."
-  },
-  {
-      URL: 'https://testing-library.com/docs/react-testing-library/cheatsheet/',
-      title: 'A cheatsheet for the React Testing Library',
-      type: 'Documentation',
-      topic: 'React',
-      description: "A short guide to all the exported functions in React Testing Library"
-  },
-  {
-      URL: 'https://github.com/testing-library/jest-dom/blob/main/README.md',
-      title: 'A list of custom jest matchers to test the state of the DOM',
-      type: 'Documentation',
-      topic: 'Jest',
-      description: "The @testing-library/jest-dom library provides a set of custom jest matchers that you can use to extend jest. These will make your tests more declarative, clear to read and to maintain."
-  },
-  {
-      URL: 'https://linguinecode.com/post/react-usereducer-vs-usestate',
-      title: 'React useReducer vs React useState: When to use one over the other?',
-      type: 'Article',
-      topic: 'React',
-      description: "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
-  }
-];
+// const initialResources = [
+//   {
+//       URL: 'https://learngitbranching.js.org/',
+//       title: 'Learn Git Branching',
+//       type: 'Game/App',
+//       topic: 'Git',
+//       description: "LearnGitBranching is a git repository visualizer, sandbox, and a series of educational tutorials and challenges. Its primary purpose is to help developers understand git through the power of visualization (something that's absent when working on the command line). This is achieved through a game with different levels to get acquainted with the different git commands."
+//   },
+//   {
+//       URL: 'https://testing-library.com/docs/react-testing-library/cheatsheet/',
+//       title: 'A cheatsheet for the React Testing Library',
+//       type: 'Documentation',
+//       topic: 'React',
+//       description: "A short guide to all the exported functions in React Testing Library"
+//   },
+//   {
+//       URL: 'https://github.com/testing-library/jest-dom/blob/main/README.md',
+//       title: 'A list of custom jest matchers to test the state of the DOM',
+//       type: 'Documentation',
+//       topic: 'Jest',
+//       description: "The @testing-library/jest-dom library provides a set of custom jest matchers that you can use to extend jest. These will make your tests more declarative, clear to read and to maintain."
+//   },
+//   {
+//       URL: 'https://linguinecode.com/post/react-usereducer-vs-usestate',
+//       title: 'React useReducer vs React useState: When to use one over the other?',
+//       type: 'Article',
+//       topic: 'React',
+//       description: "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
+//   }
+// ];
+
+
 
 function App() {
+
   // This state represents the full list of resources available - it is initially set to the placeholder array above
-  const [resources, setResources] = useState(initialResources);
+  const [resources, setResources] = useState([]);
   // This state represents the text the user has typed into the search bar
   const [input, setInput] = useState("");
   // This state represents the current list of results on the page - it is initially set to the resources array above
-  const [results, setResults] = useState(initialResources);
+  const [results, setResults] = useState([]);
   // This state represents the current list of the user's favourites - it is initially a blank list
   const [favourites, setFavourites] = useState([]);
+
+  // useEffect(() => {
+  //   // declare the async data fetching function
+  //   const fetchData = async () => {
+  //     // get the data from the api
+  //     const data = await fetch('http://localhost:3001');
+  //     console.log(data);
+  //     // convert data to json
+  //     const json = await data.json();
+  //     console.log(json);
+  //     return json;
+  //   }
+  //   fetchData();
+  // },[]);
+
+  useEffect(() => {
+    // declare the data fetching function
+    const fetchData = async () => {
+      const data = await fetch('/resources');
+      console.log(data);
+      const json = await data.json();
+      setResources(json.payload);
+      setResults(json.payload);
+    }
+    // call the function
+    fetchData()
+      // make sure to catch any error
+      .catch(console.error);
+  }, [])
+
+  
+  
 
   // This function is used in the Search component
   // It updates the input state when the user types into the search bar

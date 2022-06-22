@@ -5,9 +5,11 @@ export function NavBar() {
   return (
     <nav>
       <ul className='navlist'>
-        <NavLink LinkName={"HTML/CSS"}/>
-        <NavLink LinkName={"JavaScript"}/>
-        <NavLink LinkName={"React"}/>
+      
+       <li><NavLink LinkName={"Articles"}/></li> 
+        
+        <li><NavLink LinkName={"Videos"}/></li>
+        
       </ul>
     </nav>
   )

@@ -29,7 +29,7 @@ export function PostLink({ handleClick }){
           <input type="text" name="description" value={resource.description} placeholder='Description' onChange={handleInputChange}/>
         </div>
       </div>
-      <button type="submit" onClick={() => {handleClick(resource)}}>Submit</button>
+      <button className="submit-button" type="submit" onClick={() => {handleClick(resource)}}>Submit</button>
     </div>
   )
 };

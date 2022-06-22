@@ -5,8 +5,6 @@ import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
 
-import { useState } from 'react';
-
 
 import {Typedropdown} from './Typedropdown/index.js'
 

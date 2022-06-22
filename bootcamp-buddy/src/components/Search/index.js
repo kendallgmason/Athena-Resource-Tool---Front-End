@@ -1,4 +1,7 @@
+
 export function Search({handleClick, handleChange, input}) {
+
+    
   return(
       <div className="search-box">
           <input 

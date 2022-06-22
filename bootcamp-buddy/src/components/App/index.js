@@ -4,9 +4,16 @@ import { useState } from 'react';
 import { Favourite } from '../Favourite';
 import { ResultsList } from '../ResultsList';
 import { Search } from '../Search/index'
+
+import { useState } from 'react';
+
+
+import {Typedropdown} from './Typedropdown/index.js'
+
 import { PostLink} from '../PostLink/index';
 import { Dropdown } from '../Dropdown/index'
 import { NavBar } from '../Navbar/index'
+
 
 // This array will eventually be replaced by an array obtained by sending a query to the database
 // We have used this here in the meantime as a placeholder for testing our components
@@ -58,11 +65,14 @@ function App() {
     console.log(input);
   }
 
+
   // This function is used in the Search component
   // When the search button is clicked, it filters the resources array to match the user's input, and updates the results state
   // This updates the list of results on the page
+
   function handleClick() {
-    const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()))
+    const newResources = resources.filter(resource => resource.title.toLowerCase().includes(input.toLowerCase()) || 
+    resource.type.toLowerCase().includes(input.toLowerCase()))
     setResults(newResources);
     // Lastly, the function clears what the user has typed into the search box
     setInput("");
@@ -107,9 +117,11 @@ function App() {
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>
           <Dropdown handleChange={handleChange} options= {"Potatoes"} />
+             <Typedropdown handleChange={handleChange} options= {"Tomatos"} />
         </div>
         <ResultsList results={results} handleClick={addFavourite} />
       </div>
+
 
       <div className='right-column'>
         <NavBar/>

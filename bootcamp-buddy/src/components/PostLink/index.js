@@ -38,7 +38,7 @@ export function PostLink({ handleClick, onSelect}){
   }
 
   return(
-    <div className="post-link-content">
+    <div className="post-link-content" data-testid="object">
       <h2>Add Helpful Links</h2>
       <div className="fields">
         <div className="wrapper-item1">

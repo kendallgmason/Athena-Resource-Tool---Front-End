@@ -2,7 +2,7 @@ import { Result } from "../Result";
 
 export function ResultsList({ results, handleClick }) {
     return (
-        <div className="results">
+        <div className="results" >
             {results.map((result, index) => Result({result, index, handleClick}))}
         </div>
     );

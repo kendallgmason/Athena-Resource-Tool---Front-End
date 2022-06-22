@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Typedropdown } from '../App/Typedropdown/index.js';
 import { Dropdown } from '../Dropdown/index.js';
 
-export function PostLink({ handleClick, onSelect}){
+export function PostLink({ handleClick }){
 
   const[resource, setResource] = useState({
     topic: "",
@@ -18,7 +18,6 @@ export function PostLink({ handleClick, onSelect}){
       ...resource,
       [name]: value
     })
-    console.log(resource)
   }
 
   function handleTopicChange(e) {
@@ -38,13 +37,13 @@ export function PostLink({ handleClick, onSelect}){
   }
 
   return(
-    <div className="post-link-content">
+    <div className="post-link-content" data-testid="object">
       <h2>Add Helpful Links</h2>
       <div className="fields">
-        <div className="wrapper-item1">
+        <div className="wrapper-itemDropdown">
           <Dropdown handleChange={handleTopicChange}></Dropdown>
         </div>
-        <div className="wrapper-item1">
+        <div className="wrapper-itemDropdown">
           <Typedropdown handleChange={handleTypeChange}></Typedropdown>
         </div>
         <div className="wrapper-item1">

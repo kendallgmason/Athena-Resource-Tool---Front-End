@@ -394,3 +394,11 @@ button:hover {
   color: var(--primary-font-color);
   background-color: var(--primary-bg-color);
 }
+
+h4 > a:link {
+  color: var(--primary-font-color);
+}
+
+h4 > a:hover {
+  color: #0000EE;
+}

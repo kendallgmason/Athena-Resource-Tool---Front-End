@@ -77,9 +77,19 @@ function App() {
     const json = await data.json();
     setResources(json.payload);
     setResults(json.payload);
+
     }catch(error){
       setIsErros(true)
     }
+
+    const favouritesArray = [];
+    for (let i = 0; i < json.payload.length; i++) {
+      if (json.payload[i].isfavourite === 'true') {
+        favouritesArray.push(json.payload[i])
+      }
+    }
+    setFavourites(favouritesArray)
+
   }
 
   useEffect(() => {
@@ -109,13 +119,47 @@ function App() {
 
   // This function is used in the ResultsList component
   // When the user clicks the star button next to a result, it adds the result to their favourites list 
-  function addFavourite(index) {
-    if(!favourites.includes(results[index])){
-      const newFavourites = [...favourites, results[index]];
-      setFavourites(newFavourites);
-    } else {
-      alert('Resource is already included in favourites.')
+  function addFavourite(id) {
+    for (let i = 0; i < favourites.length; i++) {
+      if (favourites[i].id === id) {
+        alert('Resource is already included in favourites.')
+        return;
+      }
     }
+    let newFavourite;
+    for (let i = 0; i < resources.length; i++) {
+      if (resources[i].id === id) {
+        newFavourite = resources[i];
+      }
+    }
+    const newFavourites = [...favourites, newFavourite];
+    setFavourites(newFavourites);
+  }
+
+  async function addFavouriteToDB(id) {
+    for (let i = 0; i < resources.length; i++) {
+      if (resources[i].id === id) {
+        if (resources[i].isfavourite === 'true') {
+          alert('Resource is already included in favourites.')
+          return;
+        }
+      }
+    }
+    let newFavourite;
+    for (let i = 0; i < resources.length; i++) {
+      if (resources[i].id === id) {
+        newFavourite = resources[i];
+      }
+    }
+    const response = await fetch(`/resources/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({...newFavourite, isFavourite: "true"})
+    })
+    // Sending a fresh GET request to the database for the resources table, and displaying it on the page
+    fetchData();
   }
 
   // This function is used in the Favourites component
@@ -123,6 +167,24 @@ function App() {
   function deleteFavourite(index) {
     const newFavourites = [...favourites.slice(0, index), ...favourites.slice(index + 1)];
     setFavourites(newFavourites);
+  }
+
+  async function deleteFavouriteFromDB(id) {
+    let newFavourite;
+    for (let i = 0; i < resources.length; i++) {
+      if (resources[i].id === id) {
+        newFavourite = resources[i];
+      }
+    }
+    const response = await fetch(`/resources/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({...newFavourite, isFavourite: "false"})
+    })
+    // Sending a fresh GET request to the database for the resources table, and displaying it on the page
+    fetchData();
   }
 
   // This has been replaced by the addResourceToDB function below
@@ -144,6 +206,7 @@ function App() {
   // This function is used in the PostLink component
   // When the user clicks 'Submit', it sends a POST request to the API to add the new resource to the table
   // Lastly the function runs the fetchData function
+ 
   async function addResourceToDB(resource) {
     for (const key in resource) {
       if (resource[key] === '') {
@@ -158,6 +221,7 @@ function App() {
       },
       body: JSON.stringify(resource)
     })
+    console.log(JSON.stringify(resource));
     // Sending a fresh GET request to the database for the resources table, and displaying it on the page
     fetchData();
     alert('New resource added!')
@@ -191,20 +255,24 @@ function App() {
      
       <div className='left-column'>
         <img src='logo.svg' alt='img' className="logo" />
-        <Favourite favourites={favourites} handleClick={deleteFavourite}/>
+        <Favourite favourites={favourites} handleClick={deleteFavouriteFromDB}/>
       </div>
 
       <div className='middle-column'>
         <h1>Athena</h1>
-        <div className="search">
+        <div className="search" >
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>
           <Dropdown handleChange={topicFilter} />
           <Typedropdown handleChange={typeFilter} />
         </div>
+
       
         <ResultsList results={results} handleClick={addFavourite}  onRemove={handleDelete}/>
         {isError && <div style={{fontWeight:600, fontSize:'30px'}}>Something went wrong ...</div>}
+
+        <ResultsList results={results} handleClick={addFavouriteToDB} />
+
       </div>
 
 

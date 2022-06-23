@@ -6,11 +6,16 @@ const testProps = {
     buttonText: "Submit",
  };
 
-test("postLink renders successfully", () => {
+test("search renders successfully", () => {
     const { getByTestId } = render(<Search {...testProps} />);
     const actual = getByTestId("search-test");
     expect(actual).toBeInTheDocument();
  });
+
+ 
+ 
+
+ 
 
 
 // import { screen} from "@testing-library/react";

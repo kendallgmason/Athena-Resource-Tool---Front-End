@@ -415,6 +415,7 @@ button:hover {
   background-color: var(--primary-bg-color);
 }
 
+
 .result .delete-button{
   border-radius: 94px;
   width: 10%;
@@ -432,3 +433,11 @@ button:hover {
 
 
   
+
+a:hover {
+  color: #0000EE;
+}
+h4 > a {
+  color: var(--primary-font-color);
+}
+

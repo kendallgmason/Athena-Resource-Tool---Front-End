@@ -5,7 +5,7 @@ export function Favourite({ favourites, handleClick }) {
             <h2>My Favourites</h2>
             <ul>
                 {favourites.map((favourite, index) => 
-                    (<li Style={"list-style: none"} className="favourite">
+                    (<li Style={"list-style: none"} className="favourite" key={favourite.id}>
                         <button onClick={() => {handleClick(index)}}>
                             <img src="star.svg" alt="A star" height="15px"/>
                         </button>

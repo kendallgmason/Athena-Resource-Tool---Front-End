@@ -103,13 +103,21 @@ function App() {
 
   // This function is used in the ResultsList component
   // When the user clicks the star button next to a result, it adds the result to their favourites list 
-  function addFavourite(index) {
-    if(!favourites.includes(results[index])){
-      const newFavourites = [...favourites, results[index]];
-      setFavourites(newFavourites);
-    } else {
-      alert('Resource is already included in favourites.')
+  function addFavourite(id) {
+    for (let i = 0; i < favourites.length; i++) {
+      if (favourites[i].id === id) {
+        alert('Resource is already included in favourites.')
+        return;
+      }
     }
+    let newFavourite;
+    for (let i = 0; i < resources.length; i++) {
+      if (resources[i].id === id) {
+        newFavourite = resources[i];
+      }
+    }
+    const newFavourites = [...favourites, newFavourite];
+    setFavourites(newFavourites);
   }
 
   // This function is used in the Favourites component

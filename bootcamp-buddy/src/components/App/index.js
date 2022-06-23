@@ -87,7 +87,7 @@ function App() {
 
     }catch(error){
       setIsErros(true)
-    }
+    } 
   }
 
   useEffect(() => {
@@ -156,6 +156,7 @@ function App() {
       },
       body: JSON.stringify({...newFavourite, isFavourite: "true"})
     })
+    console.log(JSON.stringify({...newFavourite, isFavourite: "true"}))
     // Sending a fresh GET request to the database for the resources table, and displaying it on the page
     fetchData();
   }
@@ -266,11 +267,8 @@ function App() {
         </div>
 
       
-        <ResultsList results={results} handleClick={addFavourite}  onRemove={handleDelete}/>
+        <ResultsList results={results} handleClick={addFavouriteToDB}  onRemove={handleDelete}/>
         {isError && <div style={{fontWeight:600, fontSize:'30px'}}>Something went wrong ...</div>}
-
-        <ResultsList results={results} handleClick={addFavouriteToDB} />
-
       </div>
 
 

@@ -7,7 +7,7 @@ export function PostLink({ handleClick }){
   const[resource, setResource] = useState({
     topic: "",
     type:"",
-    URL: "",
+    url: "",
     title: "",
     description: ""
   });
@@ -47,7 +47,7 @@ export function PostLink({ handleClick }){
           <Typedropdown handleChange={handleTypeChange}></Typedropdown>
         </div>
         <div className="wrapper-item1">
-          <input type="text" name="URL" value={resource.URL} placeholder='URL' onChange={handleInputChange}/>
+          <input type="text" name="url" value={resource.url} placeholder='url' onChange={handleInputChange}/>
         </div>
         <div className="wrapper-item2">
           <input type="text" name="title" value={resource.title} placeholder='Title' onChange={handleInputChange}/>

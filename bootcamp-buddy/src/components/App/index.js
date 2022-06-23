@@ -132,10 +132,13 @@ function App() {
     setResults(newResources);
   }
 
-  //---
+  //This function is used to delete a result from the ResultList 
   function handleDelete(id){
-    const newresult = results.filter(result=> result.id !== id)
-    setResults(newresult);
+    console.log(results)
+    const newResult = results.filter(result=> result.id !== id)
+    setResults(newResult);
+    console.log(newResult)
+    
   }
   
   // This function is used in the PostLink component

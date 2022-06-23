@@ -1,7 +1,7 @@
 
 
 export function Result({ result, index, handleClick, onRemove}) {
-    console.log(result.id)
+    
     return (
         <div >
             <div  data-testid="results-test" className="result">
@@ -16,7 +16,7 @@ export function Result({ result, index, handleClick, onRemove}) {
                 <div id="paragraph">
                     <p>{result.description}</p>
                 </div>
-                <button type="button" className="delete-button" onClick={onRemove}>Delete</button>
+                <button type="button" className="delete-button" onClick={()=>onRemove(result.id)}>Delete</button>
             </div>
             
             <hr />

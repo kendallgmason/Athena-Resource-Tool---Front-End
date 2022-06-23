@@ -1,4 +1,7 @@
-export function Result({ result, index, handleClick }) {
+
+
+export function Result({ result, index, handleClick, onRemove}) {
+    console.log(result.id)
     return (
         <div >
             <div  data-testid="results-test" className="result">
@@ -10,9 +13,14 @@ export function Result({ result, index, handleClick }) {
                     <h4>{result.type}</h4>
                     <h4>{result.topic}</h4>
                 </div>
-                <p>{result.description}</p>
+                <div id="paragraph">
+                    <p>{result.description}</p>
+                </div>
+                <button type="button" className="delete-button" onClick={onRemove}>Delete</button>
             </div>
+            
             <hr />
+           
         </div>
     )
 }

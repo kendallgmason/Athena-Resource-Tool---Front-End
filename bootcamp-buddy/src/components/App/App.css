@@ -269,7 +269,7 @@ select {
   -webkit-line-clamp:3;
   -webkit-box-orient: vertical;
   line-height: 16px; /* Height taken by one line */
-   max-height: 30px;
+   max-height: 40px;
   
 }
 #paragraph p{
@@ -312,7 +312,7 @@ h4 > button:hover, .favourite > button:hover {
 
 
 
-h4 > button:hover, .favourite > button:hover, #save-button, .post-link-content > button, .search-button {
+h4 > button:hover, .favourite > button:hover, #save-button, .post-link-content > button, .search-button, .delete-button:hover {
   cursor: pointer;
 }
 

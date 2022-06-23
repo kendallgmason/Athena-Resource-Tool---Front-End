@@ -5,10 +5,6 @@ export function Favourite({ favourites, handleClick }) {
             <h2>My Favourites</h2>
             <ul>
                 {favourites.map((favourite, index) => 
-
-                    (<li Style={"list-style: none"} className="favourite" >
-                        <button onClick={() => {handleClick(index)}}>
-                          
                     (<li Style={"list-style: none"} className="favourite" key={favourite.id}>
                         <button onClick={() => {handleClick(favourite.id)}}>
 

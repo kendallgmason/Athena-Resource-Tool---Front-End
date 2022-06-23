@@ -77,11 +77,6 @@ function App() {
     const json = await data.json();
     setResources(json.payload);
     setResults(json.payload);
-
-    }catch(error){
-      setIsErros(true)
-    }
-
     const favouritesArray = [];
     for (let i = 0; i < json.payload.length; i++) {
       if (json.payload[i].isfavourite === 'true') {
@@ -90,6 +85,9 @@ function App() {
     }
     setFavourites(favouritesArray)
 
+    }catch(error){
+      setIsErros(true)
+    }
   }
 
   useEffect(() => {

@@ -34,3 +34,4 @@ test("Result renders successfully", () => {
 //     const searchButton = screen.queryByText('Search')
 //     expect(searchButton).toBeInTheDocument()
 // })
+

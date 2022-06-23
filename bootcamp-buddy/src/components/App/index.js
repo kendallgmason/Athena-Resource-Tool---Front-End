@@ -188,6 +188,7 @@ function App() {
   // This function is used in the PostLink component
   // When the user clicks 'Submit', it sends a POST request to the API to add the new resource to the table
   // Lastly the function runs the fetchData function
+ 
   async function addResourceToDB(resource) {
     for (const key in resource) {
       if (resource[key] === '') {
@@ -241,7 +242,7 @@ function App() {
 
       <div className='middle-column'>
         <h1>Athena</h1>
-        <div className="search">
+        <div className="search" >
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>
           <Dropdown handleChange={topicFilter} />

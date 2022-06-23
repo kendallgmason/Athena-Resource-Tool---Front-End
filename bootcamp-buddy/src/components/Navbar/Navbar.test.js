@@ -1,5 +1,5 @@
 import { NavBar } from "./index";
-import { render, screen, within } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 const testProps = {
     list: ["item 1", "item 2"],

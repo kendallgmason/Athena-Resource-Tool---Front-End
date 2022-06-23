@@ -16,7 +16,7 @@ export function Favourite({ favourites, handleClick }) {
                     </li>)
                 )}
             </ul>
-            <button id="save-button" type="button">Save</button>
+            {/* <button id="save-button" type="button">Save</button> */}
         </div>
     );
 }

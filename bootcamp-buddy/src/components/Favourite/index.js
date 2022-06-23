@@ -14,7 +14,7 @@ export function Favourite({ favourites, handleClick }) {
 
                             <img src="star.svg" alt="A star" height="15px"/>
                         </button>
-                        <a href={favourite.URL}>
+                        <a href={favourite.url}>
                             <h3>{favourite.title}</h3>
                         </a>
                     </li>)

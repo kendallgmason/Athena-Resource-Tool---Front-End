@@ -71,6 +71,10 @@
   align-items: center;
 }
 
+.favourites-content {
+  margin-top: 85px;
+}
+
 .favourites-content > h2, .post-link-content > h2 {
   color: var(--primary-font-color);
   font-size: 20px;
@@ -340,6 +344,7 @@ hr {
 
 nav{
   margin-bottom: 20vh;
+  margin-top: 10px;
   display: flex;
   flex-direction: space-around;
   width: 100%;

@@ -54,7 +54,8 @@ function App() {
   const [results, setResults] = useState([]);
   // This state represents the current list of the user's favourites - it is initially a blank list
   const [favourites, setFavourites] = useState([]);
-
+  //this state for handling errors
+  const [isError,setIsErros] = useState(false); 
   // useEffect(() => {
   //   // declare the async data fetching function
   //   const fetchData = async () => {
@@ -70,10 +71,17 @@ function App() {
   // },[]);
   
   const fetchData = async () => {
+    setIsErros(false)
+    try{
     const data = await fetch('/resources');
     const json = await data.json();
     setResources(json.payload);
     setResults(json.payload);
+
+    }catch(error){
+      setIsErros(true)
+    }
+
     const favouritesArray = [];
     for (let i = 0; i < json.payload.length; i++) {
       if (json.payload[i].isfavourite === 'true') {
@@ -81,6 +89,7 @@ function App() {
       }
     }
     setFavourites(favouritesArray)
+
   }
 
   useEffect(() => {
@@ -184,6 +193,15 @@ function App() {
     setResources(newResources);
     setResults(newResources);
   }
+
+  //This function is used to delete a result from the ResultList 
+  function handleDelete(id){
+    console.log(results)
+    const newResult = results.filter(result=> result.id !== id)
+    setResults(newResult);
+    console.log(newResult)
+    
+  }
   
   // This function is used in the PostLink component
   // When the user clicks 'Submit', it sends a POST request to the API to add the new resource to the table
@@ -234,7 +252,7 @@ function App() {
 
   return (
     <div className="App">
-
+     
       <div className='left-column'>
         <img src='logo.svg' alt='img' className="logo" />
         <Favourite favourites={favourites} handleClick={deleteFavouriteFromDB}/>
@@ -248,7 +266,13 @@ function App() {
           <Dropdown handleChange={topicFilter} />
           <Typedropdown handleChange={typeFilter} />
         </div>
+
+      
+        <ResultsList results={results} handleClick={addFavourite}  onRemove={handleDelete}/>
+        {isError && <div style={{fontWeight:600, fontSize:'30px'}}>Something went wrong ...</div>}
+
         <ResultsList results={results} handleClick={addFavouriteToDB} />
+
       </div>
 
 

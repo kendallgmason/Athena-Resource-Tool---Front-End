@@ -259,6 +259,26 @@ select {
   color: var(--primary-font-color)
 }
 
+#paragraph {
+  margin:0;
+  padding: 2%;
+  width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient: vertical;
+  line-height: 16px; /* Height taken by one line */
+   max-height: 30px;
+  
+}
+#paragraph p{
+  margin: 0;
+  letter-spacing:0.5px;
+  font-weight: 500;
+
+}
+
 .result > div {
   width: 30%;
   margin: 5px 0;
@@ -395,9 +415,29 @@ button:hover {
   background-color: var(--primary-bg-color);
 }
 
+
+.result .delete-button{
+  border-radius: 94px;
+  width: 10%;
+  height: 35px;
+  background-color: var(--button-color);
+  border: none;
+  color: white;
+  margin-top:6%;
+  margin-right: 2%;
+  margin-bottom: 1%;
+}
+.result .delete-button:hover{
+  background-color: var(--primary-font-color);
+}
+
+
+  
+
 a:hover {
   color: #0000EE;
 }
 h4 > a {
   color: var(--primary-font-color);
 }
+

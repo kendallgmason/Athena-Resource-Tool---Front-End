@@ -4,7 +4,7 @@ import { NavLink } from '../Navlink/index'
 export function NavBar() {
   return (
     <nav>
-      <ul className='navlist'>
+      <ul data-testid="navbar-test" className='navlist'>
       
        <li><NavLink LinkName={"Articles"}/></li> 
         

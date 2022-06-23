@@ -129,6 +129,7 @@ function App() {
   // This function is used in the PostLink component
   // When the user clicks 'Submit', it sends a POST request to the API to add the new resource to the table
   // Lastly the function runs the fetchData function
+ 
   async function addResourceToDB(resource) {
     for (const key in resource) {
       if (resource[key] === '') {

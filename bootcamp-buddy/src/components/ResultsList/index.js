@@ -2,7 +2,7 @@ import { Result } from "../Result";
 
 export function ResultsList({ results, handleClick }) {
     return (
-        <div className="results" >
+        <div className="results" data-testid="results-test" >
             {results.map((result, index) => Result({result, index, handleClick}))}
             <div className="end">
                 <h4>End of results</h4>

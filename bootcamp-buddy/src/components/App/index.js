@@ -249,6 +249,21 @@ function App() {
     }
   }
 
+  function deleteResult(id){
+    if (window.confirm('Are you sure you want to delete ?')){
+    //console.log(results)
+    const newResult = results.filter(result=> result.id !== id)
+    setResults(newResult);
+    //console.log(newResult);
+    //Call async function to delete from db
+    deleteItem(id);
+    }
+  }
+  async function deleteItem(id){
+     await fetch(`/resources/${id}`, {method: 'DELETE'});
+     fetchData();
+  }
+
   return (
     <div className="App">
      
@@ -267,7 +282,7 @@ function App() {
         </div>
 
       
-        <ResultsList results={results} handleClick={addFavouriteToDB}  onRemove={handleDelete}/>
+        <ResultsList results={results} handleClick={addFavouriteToDB}  onRemove={deleteResult}/>
         {isError && <div style={{fontWeight:600, fontSize:'30px'}}>Something went wrong ...</div>}
       </div>
 

@@ -8,7 +8,7 @@ export function Result({ result, index, handleClick, onRemove}) {
                 <div>
                     <h4>
                         <button onClick={() => {handleClick(result.id)}}><img src="star.svg" alt="A star" height="15px"/></button>
-                        <a href={result.url}>{result.title}</a>
+                        <a href={result.url} target="_blank">{result.title}</a>
                     </h4>
                     <h4>{result.type}</h4>
                     <h4>{result.topic}</h4>

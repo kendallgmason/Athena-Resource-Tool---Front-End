@@ -1,4 +1,3 @@
-
 export function Search({handleClick, handleChange, input}) {
     function handleKeyPress(e) {
         if (e.key === 'Enter') {

@@ -5,11 +5,8 @@ export function NavBar() {
   return (
     <nav>
       <ul data-testid="navbar-test" className='navlist'>
-      
-       <li><NavLink LinkName={"Articles"}/></li> 
-        
+        <li><NavLink LinkName={"Articles"}/></li> 
         <li><NavLink LinkName={"Videos"}/></li>
-        
       </ul>
     </nav>
   )

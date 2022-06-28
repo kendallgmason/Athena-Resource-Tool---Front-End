@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Typedropdown } from '../App/Typedropdown/index.js';
+import { Typedropdown } from '../Typedropdown/index.js';
 import { Dropdown } from '../Dropdown/index.js';
 
 export function PostLink({ handleClick }){
-
   const[resource, setResource] = useState({
     topic: "",
     type:"",

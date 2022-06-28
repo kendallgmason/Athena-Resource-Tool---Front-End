@@ -1,13 +1,12 @@
-import "../App/App.css";
+// import "../App/App.css";
 export function Favourite({ favourites, handleClick }) {
     return (
         <div className="favourites-content">
             <h2>My Favourites</h2>
             <ul>
-                {favourites.map((favourite, index) => 
+                {favourites.map(favourite => 
                     (<li Style={"list-style: none"} className="favourite" key={favourite.id}>
                         <button onClick={() => {handleClick(favourite.id)}}>
-
                             <img src="star.svg" alt="A star" height="15px"/>
                         </button>
                         <a href={favourite.url} target="_blank">
@@ -16,7 +15,6 @@ export function Favourite({ favourites, handleClick }) {
                     </li>)
                 )}
             </ul>
-            {/* <button id="save-button" type="button">Save</button> */}
         </div>
     );
 }

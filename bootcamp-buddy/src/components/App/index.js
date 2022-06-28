@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Dropdown } from '../Dropdown';
-import { Favourite } from '../Favourite';
+import { Favourites } from '../Favourites';
 import { NavBar } from '../Navbar';
 import { PostLink } from '../PostLink';
 import { ResultsList } from '../ResultsList';
@@ -108,7 +108,7 @@ function App() {
       body: JSON.stringify({...favouriteToRemove, isFavourite: "false"})
     })
   }
- 
+
   async function addResourceToDB(newResource) {
     for (const key in newResource) {
       if (newResource[key] === '') {
@@ -169,7 +169,7 @@ function App() {
      
       <div className='left-column'>
         <img src='logo.svg' alt='img' className="logo" />
-        <Favourite favourites={favourites} handleClick={deleteFavourite}/>
+        <Favourites favourites={favourites} handleClick={deleteFavourite}/>
       </div>
 
       <div className='middle-column'>
@@ -187,7 +187,7 @@ function App() {
         <NavBar />
         <PostLink handleClick={addResourceToDB} />
       </div>
-      
+
     </div>
   );
 }

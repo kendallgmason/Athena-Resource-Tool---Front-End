@@ -1,5 +1,5 @@
 // import "../App/App.css";
-export function Favourite({ favourites, handleClick }) {
+export function Favourites({ favourites, handleClick }) {
     return (
         <div className="favourites-content">
             <h2>My Favourites</h2>

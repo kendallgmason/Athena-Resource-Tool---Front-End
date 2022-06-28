@@ -1,7 +1,7 @@
 
 
- ![](https://i.imgur.com/XgsioqF.jpg)
-
+ <!-- ![](https://i.imgur.com/XgsioqF.jpg) -->
+<img src="https://i.imgur.com/XgsioqF.jpg" style="width: 200px" />
 
 ## Table Of Contents 
 

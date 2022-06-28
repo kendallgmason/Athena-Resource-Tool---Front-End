@@ -96,6 +96,7 @@ function App() {
 
   // This function is used in the Search component
   // It updates the input state when the user types into the search bar
+  
   function handleChange(e) {
     setInput(e.target.value);
   }
@@ -273,7 +274,7 @@ function App() {
       </div>
 
       <div className='middle-column'>
-        <h1>Athena</h1>
+        <h1>Team Athena Resource Search</h1>
         <div className="search" >
           <Search handleChange={handleChange}
             handleClick={handleClick} input={input}/>

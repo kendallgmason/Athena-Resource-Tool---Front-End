@@ -37,7 +37,7 @@
   justify-content: flex-start;
 }
 
-.right-column {
+.right-column, .left-column {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -45,18 +45,11 @@
   align-items: center;
 
 }
-.left-column{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
 
 .logo{
   width: 50%;
   margin-top: 20px;
   margin-bottom: 85px;
-  
 }
 
 .favourites-content, .post-link-content{
@@ -423,9 +416,6 @@ button:hover {
 .result .delete-button:hover{
   background-color: #DD6031;
 }
-
-
-  
 
 a:hover {
   color: #DD6031;

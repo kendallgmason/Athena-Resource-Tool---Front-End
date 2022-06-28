@@ -1,7 +1,4 @@
-
-
-export function Result({ result, index, handleClick, onRemove}) {
-    
+export function Result({ result, handleClick, onRemove}) {
     return (
         <div key={result.id}>
             <div data-testid="results-test" className="result">
@@ -18,9 +15,7 @@ export function Result({ result, index, handleClick, onRemove}) {
                 </div>
                 <button type="button" className="delete-button" onClick={()=>onRemove(result.id)}>Delete</button>
             </div>
-            
             <hr />
-           
         </div>
     )
 }

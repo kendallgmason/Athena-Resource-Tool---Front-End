@@ -1,6 +1,6 @@
 import { PostLink, Dropdown } from ".";
 import { render, screen } from "@testing-library/react";
-import { Typedropdown } from "../App/Typedropdown";
+import { Typedropdown } from "../Typedropdown";
 
 const testProps = {
     handleChange: jest.fn(),

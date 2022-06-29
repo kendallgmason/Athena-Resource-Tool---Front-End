@@ -1,44 +1,82 @@
 
 
  <!-- ![](https://i.imgur.com/XgsioqF.jpg) -->
+
+ <center>
 <img src="https://i.imgur.com/XgsioqF.jpg" style="width: 200px" />
+</center>
+
+
+</br></br>
+
 
 ## Table Of Contents 
 
-1. [Introduction](#athena-resource-tool-for-remote-coding-bootcampers)
-2. [Features](#features)
-3. [Getting Started](#getting-started)
-4. [Environmental Variables](#environment-variables)
-5. [Tech Stack](#tech-stack)
-6. [API Reference](#api-reference)
-7. [Running Tests](#running-tests)
-8. [About Us](#🚀-about-us)
-9. [Lessons Learned](#lessons-learned)
-10. [Team Github Profiles](#🔗-team-github-profiles)
-11. [Acknowledgements](#acknowledgements)
-12. [Badges](#badges)
 
-# Athena Resource Tool For Remote Coding Bootcampers
+[Introduction](#toolbox-athena-resource-tool)
+
+[Features](#➕-features)
+
+[Getting Started](#🏁-getting-started)
+
+[Environmental Variables](#🔑-environment-variables)
+
+[Tech Stack](#👩‍💻-tech-stack)
+
+[API Reference](#📚-api-reference)
+
+[Running Tests](#running-tests)
+
+[About Us](#🚀-about-us)
+
+[Lessons Learned](#🎓-lessons-learned)
+
+[Team Github Profiles](#🔗-team-github-profiles)
+
+[Acknowledgements](#❤️-acknowledgements)
+
+[Badges](#📊-badges)
+
+
+
+</br></br>
+
+
+
+# :toolbox: Athena Resource Tool
+
+
 
 Hello and thanks for your interest in our web app. 
 
 This tool can be used to search for technical resource links, add those links to the favourites section that you find most useful, delete those you don't find useful and add links that you do. 
 
+</br></br>
 
-## Features
+
+
+## ➕ Features
+
+</br>
 
 - Search For Resources in Database
 - Add/Remove Search Links to Favourites Section
 - Add/Remove New Resources to Database
 
+</br>
+
+[Back to Top](#table-of-contents)
+
+</br></br>
 
 
 
+## 🏁 Getting Started 
 
-
-## Getting Started 
+</br>
 
 ### Front End.
+</br>
 
 Step 1. 
 
@@ -63,7 +101,11 @@ To start using the front end, do the following.
   npm start
 ```
 
+</br>
+
 ### Back End 
+
+</br>
 
 
 Step 1. 
@@ -92,13 +134,17 @@ To start using the back end, do the following.
   npm run dev
 ```
 
+</br>
 
-
-
+[Back to Top](#table-of-contents)
+</br></br>
 
 
     
-## Environment Variables
+
+## 🔑 Environment Variables
+
+</br>
 
 To run the back end repo of this project, you will need to add your own credentials from the database you're using to draw from. (e.g.: Heroku) 
 
@@ -117,6 +163,7 @@ PGPASSWORD=
 PGPORT=
 
 ```
+</br>
 
 After this, first run the create table script in the terminal.
 
@@ -136,29 +183,53 @@ If you'd like to drop the table completely, run the following script:
 npm run db:dropTable
 
 ```
+</br>
+
+[Back to Top](#table-of-contents)
+</br></br>
 
 
 
+## 👩‍💻 Tech Stack
 
-## Tech Stack
+</br>
 
 **Client:** React, CSS
 
 **Server:** Node, Express, PostgreSQL
 
+</br>
 
-## API Reference
 
-### To GET All Resources: 
+[Back to Top](#table-of-contents)
+
+</br></br>
+
+
+
+## 📚 API Reference
+
+</br>
+
+### To GET All Resources:
+
+</br>
+
 GET http://localhost:3000/resources/
 
 This returns the entire contents of the database.
 
-### To GET Resources by ID: 
+</br>
+
+### To GET Resources by ID:
+
+</br>
 
 GET http://localhost:3000/resources/{id}
 
 e.g. GET http://localhost:3000/resources/4
+
+</br>
 
 This returns:
 
@@ -183,12 +254,21 @@ This returns:
 }
 ```
 
+</br>
+
 The value of isFavourite is a string instead of a boolean.
 
 ### To GET Resources by title: 
+
+</br>
+
 GET http://localhost:3000/resources?title=value
 
+</br>
+
 e.g. GET http://localhost:3000/resources?title=react
+
+</br>
 
 This returns:
 
@@ -219,11 +299,16 @@ This returns:
 }
 ```
 
-### To Add To Database: 
+### To Add To Database:
+
+</br>
 
 POST http://localhost:3000/resources
 
+</br>
+
 e.g. POST http://localhost:3000/resources
+
 
 Post an object with this structure:
 
@@ -247,11 +332,18 @@ Post an object with this structure:
 
 The value of id is automatically set and the value of isFavourite is automatically set to "false"
 
+</br>
+
 ### To Update Database: 
+
+</br>
 
 PUT: http://localhost:3000/resources/{id}
 
+</br>
+
 e.g. PUT http://localhost:3000/resources/5
+
 
 Update using an object with this structure:
 
@@ -276,17 +368,34 @@ Update using an object with this structure:
 
 Reminder: the value of isFavourite is a string so update this value with a lowercase string.
 
+</br>
+
 ### To Delete Entry From Database: 
+
+</br>
 
 DELETE:  http://localhost:3000/resources/{id}
 
+</br>
+
 e.g. DELETE http://localhost:3000/resources/5
 
+</br>
+
+[Back to Top](#table-of-contents)
+
+</br></br>
 
 
-## Running Tests
 
-To run tests, run the following commands.. 
+## 🧪 Running Tests
+
+</br>
+
+
+To run tests, run the following commands..
+
+</br>
 
 ### Front End
 
@@ -295,6 +404,7 @@ The front end runs tests based from the React Testing Library.
 ```bash
   npm run test
 ```
+</br>
 
 ### Back End
 
@@ -306,57 +416,149 @@ The back end runs tests in Supertest and Jest.
 
 
 
+[Back to Top](#table-of-contents)
+</br></br>
 
 
 ## 🚀 About Us
+
+</br>
+
+
 We're a group of five young, talented, ambitious full stack developers that wanted to create an app that solved the problem of accessing resources. 
 
+</br>
+
+[Back to Top](#table-of-contents)
+
+</br></br>
 
 
-## Lessons Learned
+
+## 🎓 Lessons Learned
+
+</br>
+
 
 Teamwork makes the dream work.. 
 
-Break down every problem and then do it again and again.. 
+</br>
+
+Break down every problem and then do it again and again..
+
+</br>
 
 Standups and Retros really helped us keep a great rhythm and revise our plan incrementally.. 
 
-Keep open communication and share the problems you have when needed, we’re better together.. 
+</br>
+
+Keep open communication and share the problems you have when needed, we’re better together..
+
+</br>
 
 Take your breaks after the mini sprints, stay hydrated and encourage everyone to take a break from the screen.. 
 
+</br>
+
 Let things go if need be.. Sometimes it’s just not worth it..
+
+</br>
+
+[Back to Top](#table-of-contents)
+
+</br></br>
+
 
 
 ## 🔗 Team Github Profiles
 
+</br>
+
+
 https://github.com/DHawkesford
+
+</br>
 
 https://github.com/jena-84
 
+</br>
+
 https://github.com/srai98i
+
+</br>
 
 https://github.com/kendallgmason
 
+</br>
+
 https://github.com/shabana89
 
+</br>
 
-## Acknowledgements
+
+[Back to Top](#table-of-contents)
+
+</br></br>
+
+
+
+## ❤️ Acknowledgements
+
+</br>
+
 
  - [Chris Meah's Express generator module](https://www.npmjs.com/package/express-generator-esmodules)
+
+ </br>
+
  - [React Hooks by Robin Wieruch](https://www.robinwieruch.de/react-hooks-fetch-data/)
+
+ </br>
+
  - [Async functions with useeffect by devtrium](https://devtrium.com/posts/async-functions-useeffect)
+
+ </br>
+
  - [How to handle multiple inputs in React](https://dev.to/deboragaleano/how-to-handle-multiple-inputs-in-react-55el)
+
+ </br>
+
  - [How to Create a React App with a Node Backend: The Complete Guide](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/)
+
+ </br>
+
  - [React + Fetch - HTTP POST Request Examples | Jason Watmore's Blog](https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples)
- 
+
+ </br>
 
 
-## Badges
+ [Back to Top](#table-of-contents)
+
+
+</br></br>
+
+
+## 📊 Badges
+
+</br>
+
 
 Add badges from somewhere like: [shields.io](https://shields.io/)
 
+</br>
+
 [![MIT License](/bundlephobia/:format/:packageName)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+</br>
+
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
+</br>
+
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+</br>
+
+
+[Back to Top](#table-of-contents)
 

@@ -1,9 +1,9 @@
 :root {
-  --primary-bg-color: #B3A9E1;
-  --secondary-bg-color: #F1E9DA;
-  --primary-font-color: #231942;
-  --dropdown-color: #F1E9DA;
-  --button-color: #231942;
+  --primary-bg-color: #FFFFFF;
+  --secondary-bg-color: #DBCBD8;
+  --primary-font-color: #232aba;
+  --dropdown-color: #DBCBD8;
+  --button-color: #232aba;
 }
 
 * {
@@ -107,12 +107,12 @@
   width: 90%;
   background-color: var(--primary-bg-color);
   margin-top: 5%;
-  color: var(--primary-font-color);
+  color: #232aba;
   font-size: 10px;
 }
 
 ::placeholder {
-  color: #231942;
+  color: #232aba;
 }
 
 .favourite {
@@ -138,12 +138,13 @@
   height: 35px;
   background-color: var(--button-color);
   border: none;
-  color: white;
+  color: #FFFFFf;
+  font-weight: bold;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 #save-button:hover {
-  background-color: var(--primary-font-color);
+  background-color: #FF4949;
 }
 
 .middle-column > h1 {
@@ -219,7 +220,7 @@ input:focus {
 
 select {
   background: var(--dropdown-color);
-  color: #231942;
+  color: #232aba;
   border: none;
   width: 90%;
   font-size: 12px;
@@ -245,11 +246,13 @@ select {
 
 .result {
   display: flex;
+  font-size: 15px;
   flex-direction: row;
   justify-content: space-around;
   background-color: var(--primary-bg-color);
   margin-top: 10px;
   color: var(--primary-font-color)
+  
 }
 
 #paragraph {
@@ -303,7 +306,7 @@ h4 > button:hover, .favourite > button:hover, #save-button, .post-link-content >
 }
 
 .submit-button:hover {
-  color: #DD6031;
+  color: #FF4949;
   color: white;
 
 }
@@ -343,7 +346,7 @@ hr {
 }
 
 .navlist >li:hover {
-  background-color: #DD6031;
+  background-color: #FF4949;
   color: white;
   cursor: pointer;
 }
@@ -367,7 +370,7 @@ nav > ul {
 }
 
 button:hover {
-  background-color: #DD6031;
+  background-color: #FF4949;
   color: white;
 }
 
@@ -414,11 +417,11 @@ button:hover {
   margin-bottom: 1%;
 }
 .result .delete-button:hover{
-  background-color: #DD6031;
+  background-color: #FF4949;
 }
 
 a:hover {
-  color: #DD6031;
+  color: #FF4949;
 }
 h4 > a {
   color: var(--primary-font-color);

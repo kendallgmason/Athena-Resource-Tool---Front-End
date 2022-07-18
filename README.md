@@ -6,10 +6,6 @@
 
 </br></br>
 
-Live DEMO: https://athenaresourcetool.netlify.app/
-
-</br></br>
-
 ## Table Of Contents
 
 [Introduction](#🧰-athena-resource-tool)
